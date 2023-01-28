@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-2">
+   Side Bar for Mobile filter
+  </div>
+  <div class="col-sm-8 offset-sm-1">
+   Mobile Product List
+
+   <div class="col-sm-9">
+    <div class="row">
+      {% for product in Product %}
+        <div class="col-sm-4 text-center mb-4">
+          <a href="{% url 'product-detail' product.id %}" class="btn">
+            <div class="item">
+              <img src="{{product.product_image.url}}" alt="" height="250" width="200px" class="">
+              <div class="fw-bold">{{product.title}}</div>
+              <div class="fw-bold">Rs. {{product.discounted_price}}
+                <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor%}
+    </div>
+  </div>
+
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
