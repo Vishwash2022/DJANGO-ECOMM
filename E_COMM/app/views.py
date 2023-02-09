@@ -230,6 +230,7 @@ def mobile(request):
 
 #def checkout(request):
 # return render(request, 'app/checkout.html')
+
 def user_login(request):
  if not request.user.is_authenticated:
   if request.method == "POST":
